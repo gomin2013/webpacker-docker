@@ -1,7 +1,20 @@
-version: '3'
+version: '3.7'
 services:
-  web:
+  web: &web_base
     build: .
+    command: bundle exec pumactl start
+    ports:
+      - 80:3000
     container_name: web
     volumes:
       - .:/app
+    tty: true
+    stdin_open: true
+  webpack:
+    <<: *web_base
+    command: bin/webpack-dev-server
+    ports:
+      - 3035:3035
+    container_name: webpack
+    depends_on:
+      - web
