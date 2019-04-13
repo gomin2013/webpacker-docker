@@ -1,5 +1,12 @@
 {
   "name": "app",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@rails/webpacker": "3.5",
+    "caniuse-lite": "^1.0.30000697",
+    "webpack": "^3.0.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
+  }
 }
