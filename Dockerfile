@@ -17,6 +17,10 @@ RUN apt-get update -qq \
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
+# Add Puma SSL certificate files.
+ADD ./keys/server.crt /home/root/.ssh/server.crt
+ADD ./keys/server.key /home/root/.ssh/server.key
+
 ADD Gemfile $APP_HOME/Gemfile
 ADD Gemfile.lock $APP_HOME/Gemfile.lock
 ADD package.json $APP_HOME/package.json

@@ -35,7 +35,7 @@ development:
 
   # Reference: https://webpack.js.org/configuration/dev-server/
   dev_server:
-    https: false
+    https: true
     host: webpack
     port: 3035
     public: 0.0.0.0:3035
