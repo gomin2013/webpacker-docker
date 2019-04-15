@@ -3,7 +3,12 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5",
+    "activestorage": "^5.2.3",
     "caniuse-lite": "^1.0.30000697",
+    "coffee-loader": "^0.9.0",
+    "coffeescript": "1.12.7",
+    "rails-ujs": "^5.2.3",
+    "turbolinks": "^5.2.0",
     "webpack": "^3.0.0"
   },
   "devDependencies": {
