@@ -12,6 +12,10 @@ ARG RAILS_ROOT=/app
 # Set up a work directory.
 RUN mkdir $RAILS_ROOT
 WORKDIR $RAILS_ROOT
+COPY Gemfile .
+COPY Gemfile.lock .
+COPY package.json .
+COPY yarn.lock .
 
 # Install Packages.
 RUN apk update && \
@@ -39,6 +43,10 @@ RUN apk update && \
       nodejs \
       yaml && \
     npm i -g yarn
+RUN gem install bundler:1.17.2 && \
+    bundle install -j4 && \
+    apk del .build-dependencies
+RUN yarn
 
-# Install Rails.
-RUN gem install rails -v 6.0.0.beta3
+# Copy the source code.
+ADD . $RAILS_ROOT
